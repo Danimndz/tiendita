@@ -21,11 +21,12 @@ code {
   margin-right: auto;
   font-size: larger;
   width: 100%;
+  color: aliceblue;
 }
 
 .content-table thead tr {
-  background-color: rgb(3, 3, 3);
-  color: rgb(160, 168, 171);
+  background-color: rgb(66, 143, 156);
+  color: rgb(223, 230, 233);
 }
 
 .content-table td {
@@ -37,11 +38,11 @@ code {
   border-bottom: 1px solid #dddd;
 }
 .content-table tbody tr:nth-of-type(even) {
-  background-color: rgb(32, 33, 33);
+  background-color: rgb(159, 214, 214);
 }
 
 .content-table tbody tr:nth-of-type(2n + 1) {
-  background-color: rgb(23, 24, 24);
+  background-color: rgb(147, 192, 192);
 }
 
 .formP {
@@ -68,8 +69,8 @@ code {
   padding: 10px;
 }
 
-.err {
-  size: 2px;
+.error {
+  size: 0.2px;
   color: red;
 }
 

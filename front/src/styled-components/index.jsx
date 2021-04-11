@@ -5,7 +5,7 @@ export const Background = styled.div`
   max-width: 100%;
   width: 100%;
   height: 100%;
-  background: rgba(0, 0, 0, 0.8);
+  background: rgba(159, 214, 214, 0.233);
   position: fixed;
   display: flex;
   justify-content: center;
@@ -13,10 +13,10 @@ export const Background = styled.div`
 `;
 
 export const ModalWrapper = styled.div`
-  width: 800px;
-  height: 500px;
-  box-shadow: 0 5px 16px rgba(0, 0, 0, 0.2);
-  background: rgb(29, 29, 29);
+  width: 300px;
+  height: 300px;
+  box-shadow: 0 5px 16px rgb(159, 214, 214);
+  background: rgb(70, 190, 190);
   color: #000;
   display: grid;
   grid-template-columns: 1fr 1fr;
@@ -27,8 +27,8 @@ export const ModalWrapper = styled.div`
 
 export const ModalContent = styled.div`
   display: flex;
-  width: 800px;
-  height: 500px;
+  width: 300px;
+  height: 300px;
   flex-direction: column-reverse;
   justify-content: center;
   align-items: center;
