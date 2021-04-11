@@ -38,7 +38,7 @@ const Main = () => {
         setShowModal={setShowModal}
         from={from}
       />
-      <Button onClick={openModal}>
+      <Button onClick={openModal} data-testid="shoppingbag">
         <BiShoppingBag size={30} color="white" />
       </Button>
       <ListaProductos productos={productos} />
