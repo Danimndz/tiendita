@@ -28,6 +28,22 @@ router.route('/getProductos').get((request,response)=>{
     })
 })
 
+router.route('/getProducto/:id_producto').get((request,response)=>{
+
+    db.getProducto(request.params.id_producto).then(result=>{
+        response.json(result[0][0])    
+    })
+})
+
+router.route('/registrarVenta/:id_producto').put((request,response)=>{
+    let producto = {... request.body}
+    console.log(producto);
+
+    db.registrarVenta(producto).then(result=>{
+        return response.status(201).json({message:"venta realizada"})
+    })  
+})
+
 var port = process.env.port || 8090
 app.listen(port)
 console.log('Tiendida API is running at '+port)
