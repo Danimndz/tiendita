@@ -28,6 +28,11 @@
   color: #61dafb;
 }
 
+.modal-h1{
+  color: aliceblue;
+font-size: large;
+}
+
 @keyframes App-logo-spin {
   from {
     transform: rotate(0deg);
