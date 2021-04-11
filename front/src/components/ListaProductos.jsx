@@ -7,6 +7,7 @@ import Modal from "./Modal";
  * @param {Object} pros.productos - products that got send from the main
  */
 const ListaProductos = ({ productos }) => {
+  const from = 1;
   const [showModal, setShowModal] = useState(false);
   const [product, setProduct] = useState(null);
 
@@ -25,6 +26,7 @@ const ListaProductos = ({ productos }) => {
         producto={product}
         showModal={showModal}
         setShowModal={setShowModal}
+        from={from}
       />
       <table className="content-table">
         <thead>
@@ -59,6 +61,7 @@ const ListaProductos = ({ productos }) => {
             })}
         </tbody>
       </table>
+
     </div>
   );
 };

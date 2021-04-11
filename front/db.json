@@ -4,13 +4,13 @@
       "id": 1,
       "nombre": "Chanclas",
       "precio": 123,
-      "cantidad": 12
+      "cantidad": 6
     },
     {
       "id": 2,
       "nombre": "PlayStation 5",
       "precio": 13000,
-      "cantidad": 122
+      "cantidad": 123
     },
     {
       "id": 3,
