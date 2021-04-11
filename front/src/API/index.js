@@ -1,9 +1,9 @@
 import axios from "axios";
 
-const url = "http://localhost:3004/productos";
+const url = "http://localhost:8090/api";
 
 export const fetchProducts = async () => {
-  const datos = await axios.get(url);
+  const datos = await axios.get(`${url}/getProductos`);
   return datos.data;
 };
 /**
@@ -13,11 +13,11 @@ export const fetchProducts = async () => {
  */
 export const comprarProductos = async (productos) => {
   productos.forEach((producto) => {
-    axios.get(`${url}/${producto.id}`).then((res) => {
+    axios.get(`${url}/getProducto/${producto.id}`).then((res) => {
       let data = res.data;
       data.cantidad -= producto.cantidad;
       console.log("cantidad", data.cantidad);
-      axios.put(`${url}/${producto.id}`, data).then(() => {
+      axios.put(`${url}/registrarVenta/${producto.id}`, data).then(() => {
         return;
       });
     });
