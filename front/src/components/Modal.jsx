@@ -8,12 +8,16 @@ import {
   CloseModalButton,
 } from "../styled-components";
 import ProductSelector from "./ProductSelector";
+import PriceReview from "./PriceReview";
+import { useHistory } from "react-router";
 /**
  * @param {function} setShowModal - function that returns true or false to manage the Modal.
  * @param {boolean} showModal - variable from the function setShowModal.
  * @param {Object} producto - specific product.
+ * @param {int} from - checks from where is called the form.
  */
-const Modal = ({ showModal, setShowModal, producto }) => {
+const Modal = ({ showModal, setShowModal, producto, from }) => {
+  const history = useHistory();
   const animation = useSpring({
     config: {
       duration: 250,
@@ -28,15 +32,23 @@ const Modal = ({ showModal, setShowModal, producto }) => {
           <animated.div style={animation}>
             <ModalWrapper showModal={showModal}>
               <ModalContent>
-                <ProductSelector
-                  setShowModal={setShowModal}
-                  showModal={showModal}
-                  producto={producto}
-                />
+                {from === 0 ? (
+                  <PriceReview />
+                ) : (
+                  <ProductSelector
+                    setShowModal={setShowModal}
+                    showModal={showModal}
+                    producto={producto}
+                  />
+                )}
               </ModalContent>
-              <CloseModalButton
-                onClick={() => setShowModal((value) => !value)}
-              />
+              {from === 1 ? (
+                <CloseModalButton
+                  onClick={() => setShowModal((value) => !value)}
+                />
+              ) : (
+                <CloseModalButton onClick={() => history.go()} />
+              )}
             </ModalWrapper>
           </animated.div>
         </Background>

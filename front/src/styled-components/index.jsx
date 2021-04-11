@@ -56,5 +56,5 @@ export const Button = styled.div`
   height: 40px;
   width: 20px;
   align-content: center;
-  background-color: rgb(19, 16, 16);
+  background-color: rgb(70, 190, 190);
 `;

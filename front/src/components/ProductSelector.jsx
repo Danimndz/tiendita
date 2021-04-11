@@ -7,17 +7,18 @@ import { saveData } from "../Redux/actions";
  * @param {Object} producto - specific product.
  */
 const ProductSelector = ({ producto, setShowModal }) => {
-  const [cantidad, setCantidad] = useState([]);
+  const [cantidad, setCantidad] = useState(null);
   const [flag, setFlag] = useState(false);
   const dispatch = useDispatch();
-
   /**
    * function that saves data in redux
    */
   const getCantidad = () => {
     const obj = {
+      id: producto.id,
       nombre: producto.nombre,
       cantidad,
+      precio: producto.precio,
     };
     if (cantidad <= producto.cantidad && cantidad > 0) {
       /**
@@ -42,11 +43,7 @@ const ProductSelector = ({ producto, setShowModal }) => {
     <div>
       <label className="modal-h1">Selecciona la cantidad:</label>
       <input
-        /**
-         * function that saves de quantitie of a product on the state.
-         * @param {int} value from the input value.
-         */
-        onChange={(event) => setCantidad(event.target.value)}
+        onChange={(event) => setCantidad(parseInt(event.target.value))}
         type="number"
         min="1"
         max={producto.cantidad}
