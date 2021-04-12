@@ -1,5 +1,6 @@
 var config = require('./dbconfig')
 const sql = require('mssql')
+const logger = require('./logger')
 
 const axios = require('axios');
 
@@ -12,11 +13,12 @@ async function getProductos() {
     */
     try{
         let pool = await sql.connect(config)
-        let personas = await pool.request().query("SELECT * from productos")
-        return personas.recordsets;
+        let productos = await pool.request().query("SELECT * from productos")
+        logger.debug(productos.recordsets);
+        return productos.recordsets;
     }
     catch(err){
-        console.log('error')
+        logger.error('error')
     }
 }
 
@@ -29,11 +31,12 @@ async function getProducto(id_producto) {
     */
     try{
         let pool = await sql.connect(config)
-        let personas = await pool.request().query(`select * from productos where id = ${id_producto}`)
-        return personas.recordsets;
+        let productos = await pool.request().query(`select * from productos where id = ${id_producto}`)
+        logger.debug(productos.recordsets);
+        return productos.recordsets;
     }
     catch(err){
-        console.log('error')
+        logger.error('error')
     }
 }
 
@@ -51,7 +54,7 @@ async function registrarVenta(producto){
         .query(`update productos set cantidad = ${producto.cantidad} where id = ${producto.id}`)
 
     }catch(err){
-        console.log(err) 
+        logger.error(err) 
     }
 
 }
